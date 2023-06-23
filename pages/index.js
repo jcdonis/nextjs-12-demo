@@ -1,8 +1,9 @@
 import Head from 'next/head';
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import styles from '../styles/Home.module.css';
 
 export const getServerSideProps = async () => {
-  const results = await fetch('http://localhost:3000/api/services');
+  const results = await fetch(`${process.env.BASE_URL}/api/services`);
   const data = await results.json();
 
   return {
